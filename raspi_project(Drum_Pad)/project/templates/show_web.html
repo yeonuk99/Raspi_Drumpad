@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title>DrumPad Contoller</title>
+</head>
+<boby>
+    <div>
+        <h2>Drum Pad</h2>
+    </div>
+    <div>
+        <button onclick="start_image()"> START! </button>
+    </div>
+    <div id = "myImage"></div>
+    <img src="static/image/{{image_file}}">
+
+
+
+    <script>
+        function start_image(){
+            
+            fetch("/play/snare")
+            .then(response => response.text())
+            .then(data=>{
+                console.log(data);
+                let result=document.querySelector("#myImage");
+                if(data == "ok"){
+                    myImage.innerHTML = "<h1> hello </h1>";
+                }
+                else {
+                    myImage.innerHTML = "<h1>error</h1>";
+                }
+            });
+        }
+    </script>
+
+
+</boby>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Web</title>
+</head>
+<body>
+    <h1>버튼을 누르면 이미지가 나옵니다.</h1>
+    <button id="snareButton">스네어 드럼 재생</button>
+    <button id="hihatButton">하이햇 재생</button>
+    <button id="bassButton">베이스 재생</button>
+    <button id="cymbalButton">심벌 재생</button>
+    <button id="tomtomButton">톰톰 재생</button>
+    <br>
+    <img id="imageDisplay" src="" alt="이미지">
+    
+    <script>
+        // 버튼 클릭 이벤트 처리
+        document.getElementById("snareButton").addEventListener("click", function() {
+            fetch("/play/snare").then(response => {
+                if (response.ok) {
+                    // 버튼 클릭 시 이미지 변경
+                    document.getElementById("imageDisplay").src = "snare_image.jpg"; // 이미지 파일 경로
+                }
+            });
+        });
+        
+        // 다른 버튼에 대한 이벤트 처리도 유사하게 작성
+        // ...
+
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
